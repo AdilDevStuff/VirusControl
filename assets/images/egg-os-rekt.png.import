@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qs0d0i6gckum"
-path="res://.godot/imported/egg-os-rekt-hovered.png-c38ed35aa8cd6183d4332d5416bf3d49.ctex"
+uid="uid://5r7i1h38ggtr"
+path="res://.godot/imported/egg-os-rekt.png-328ff6b098b95d547691c419d8979ab5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/egg-os-rekt-hovered.png"
-dest_files=["res://.godot/imported/egg-os-rekt-hovered.png-c38ed35aa8cd6183d4332d5416bf3d49.ctex"]
+source_file="res://assets/images/egg-os-rekt.png"
+dest_files=["res://.godot/imported/egg-os-rekt.png-328ff6b098b95d547691c419d8979ab5.ctex"]
 
 [params]
 

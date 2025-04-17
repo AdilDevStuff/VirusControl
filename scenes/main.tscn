@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://blukyxbov3cah" path="res://scenes/main.gd" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://bq38ld4mhr5ia" path="res://scenes/error_window/error_window.tscn" id="2_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://60p30npm6kti" path="res://scenes/ad_window/ad_window.tscn" id="3_choun"]
-[ext_resource type="Texture2D" uid="uid://dojxsqn2mqxub" path="res://assets/EggOsDefaultWallpaper.png" id="3_o6xl0"]
+[ext_resource type="Texture2D" uid="uid://dojxsqn2mqxub" path="res://assets/images/EggOsDefaultWallpaper.png" id="3_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://t2pn2cpod3bc" path="res://scenes/file_explorer/file_explorer.tscn" id="3_tipki"]
 [ext_resource type="PackedScene" uid="uid://dibbf0518rqt1" path="res://scenes/software_store/software_store.tscn" id="4_85g3d"]
 [ext_resource type="Texture2D" uid="uid://d3rdiyojb2uu4" path="res://icon.svg" id="6_tefeu"]
