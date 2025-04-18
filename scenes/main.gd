@@ -16,11 +16,14 @@ class_name DesktopEnvironment
 var window_instance: Window
 
 func _ready() -> void:
+	Global.score = 0
+	Global.can_virus_popup = true
+	
 	Events.virus_deleted.connect(_on_virus_deleted)
 	Events.autoclose_wait_time_changed.connect(_on_autoclose_wait_time_updated)
 
 func _process(delta: float) -> void:
-	get_score()
+	if OS.is_debug_build(): get_score()
 	Global.score = clampi(Global.score, 0, Global.score)
 	score_label.text = "Score: %d pts" % Global.score
 	if Global.can_virus_popup:
@@ -48,12 +51,13 @@ func close_all_popups() -> void:
 # ---------- SIGNAL CALLBACKS ---------- #
 
 func _on_virus_deleted() -> void:
-	print("VIRUS Has been Deleted!")
 	Global.can_virus_popup = false
+	infection_meter.hide()
 	while !virus_popups.get_child_count() == 0:
 		virus_popups.get_child(0).close_window()
 		await get_tree().create_timer(0.1).timeout
-	# TODO: Show Win Screen
+	await get_tree().create_timer(1.0).timeout
+	get_tree().change_scene_to_file("res://scenes/WinScreen.tscn")
 
 func _on_autoclose_wait_time_updated() -> void:
 	autoclose_delay.wait_time = Global.autoclose_timer_wait_time
