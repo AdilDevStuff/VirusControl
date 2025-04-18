@@ -63,6 +63,7 @@ func _on_window_spawn_delay_timeout() -> void:
 	create_new_window()
 
 func _on_file_explorer_pressed() -> void:
+	SoundManager.click_sfx.play()
 	var file_explorer_instance: Window = file_explorer_scene.instantiate()
 	file_explorer_instance.size = Vector2.ZERO
 	var tween = create_tween()
@@ -70,6 +71,7 @@ func _on_file_explorer_pressed() -> void:
 	add_child(file_explorer_instance)
 
 func _on_software_store_pressed() -> void:
+	SoundManager.click_sfx.play()
 	var software_store_instance: Window = software_store_scene.instantiate()
 	software_store_instance.size = Vector2.ZERO
 	var tween = create_tween()

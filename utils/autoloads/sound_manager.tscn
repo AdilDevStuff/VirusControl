@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://jsvv68tmfk5g"]
+
+[ext_resource type="AudioStream" uid="uid://fj7jchf8at1o" path="res://assets/audio/ClickSfx.wav" id="1_cm0ph"]
+[ext_resource type="Script" uid="uid://dep8h731faxhf" path="res://utils/autoloads/sound_manager.gd" id="1_wdl5n"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_wdl5n"]
+random_pitch = 1.1
+streams_count = 1
+stream_0/stream = ExtResource("1_cm0ph")
+
+[node name="SoundManager" type="Node"]
+script = ExtResource("1_wdl5n")
+
+[node name="ClickSFX" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_wdl5n")

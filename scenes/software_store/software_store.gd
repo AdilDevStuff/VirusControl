@@ -25,10 +25,12 @@ func buy_upgrade(idx: int):
 
 # SIGNAL CALLBACKS
 func _on_close_requested() -> void:
+	SoundManager.click_sfx.play()
 	var tween = create_tween()
 	tween.tween_property(self, "size", Vector2i.ZERO, 0.1)
 	await tween.finished
 	self.queue_free()
 
 func on_item_clicked(index: int) -> void:
+	SoundManager.click_sfx.play()
 	buy_upgrade(index)

@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Global="*res://utils/autoloads/global.gd"
 Events="*res://utils/autoloads/events.gd"
+SoundManager="*res://utils/autoloads/sound_manager.tscn"
 
 [display]
 

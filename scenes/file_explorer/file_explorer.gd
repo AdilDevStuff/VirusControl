@@ -50,12 +50,14 @@ func clear_children(object):
 		child.queue_free()
 
 func _on_close_requested() -> void:
+	SoundManager.click_sfx.play()
 	var tween = create_tween()
 	tween.tween_property(self, "size", Vector2i.ZERO, 0.1)
 	await tween.finished
 	self.queue_free()
 
 func _on_item_selected(_name) -> void:
+	SoundManager.click_sfx.play()
 	var folder = filesystem.get_current_folder()
 	if typeof(folder[_name]) == TYPE_DICTIONARY:
 		filesystem.current_path.append(_name)
@@ -69,7 +71,9 @@ func _input(event: InputEvent) -> void:
 		filesystem.delete_file(selected_file, self)
 
 func _on_back_button_pressed() -> void:
+	SoundManager.click_sfx.play()
 	filesystem.go_back(self)
 
 func _on_delete_button_pressed() -> void:
+	SoundManager.click_sfx.play()
 	filesystem.delete_file(selected_file, self)

@@ -16,6 +16,7 @@ func close_window() -> void:
 	self.queue_free()
 
 func _on_close_requested() -> void:
+	SoundManager.click_sfx.play()
 	close_window()
 
 func _on_fix_button_pressed() -> void:
