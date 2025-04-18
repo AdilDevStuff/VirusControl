@@ -26,6 +26,10 @@ SoundManager="*res://utils/autoloads/sound_manager.tscn"
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
+[global_group]
+
+Main=""
+
 [input]
 
 delete_file={

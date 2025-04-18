@@ -13,7 +13,11 @@ func buy_upgrade(idx: int):
 	
 	if Global.score >= upgrade.item_cost:
 		Global.score -= upgrade.item_cost
-		Global[upgrade.item_property] = true
+		
+		if !upgrade.item_property.is_empty(): Global[upgrade.item_property] = true
+		elif !upgrade.item_method.is_empty():
+			get_tree().call_group(upgrade.item_method_group, upgrade.item_method)
+			
 		upgrade.item_cost += upgrade.item_cost_increase_rate
 		btn_node.text = upgrade.item_name + "\n(%d Pts)" % upgrade.item_cost
 		

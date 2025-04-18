@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="UpgradeItem" load_steps=2 format=3 uid="uid://ufgl4cr6dpxc"]
+
+[ext_resource type="Script" uid="uid://62abtipqs0x7" path="res://utils/resources/upgrades/upgrade_item.gd" id="1_66t5c"]
+
+[resource]
+script = ExtResource("1_66t5c")
+item_name = "Close All Popups"
+item_cost = 200
+item_cost_increase_rate = 0
+item_btn = NodePath("PanelContainer/MarginContainer/GridContainer/CloseAllPopups")
+item_property = ""
+item_method = "close_all_popups"
+item_method_group = "Main"
+metadata/_custom_type_script = "uid://62abtipqs0x7"

@@ -40,11 +40,10 @@ func create_new_window() -> void:
 		window_instance.position = Vector2(random_position_x, random_position_y)
 		virus_popups.add_child(window_instance)
 
-func remove_popups_automatically() -> void:
+func close_all_popups() -> void:
 	if virus_popups.get_child_count() > 0:
 		for popup in virus_popups.get_children():
-			popup.queue_free()
-	await get_tree().create_timer(0.5).timeout
+			popup.close_window()
 
 # ---------- SIGNAL CALLBACKS ---------- #
 

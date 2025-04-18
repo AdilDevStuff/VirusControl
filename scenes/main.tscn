@@ -19,7 +19,7 @@ font_size = 51
 outline_size = 10
 outline_color = Color(0, 0, 0, 1)
 
-[node name="Main" type="Control" node_paths=PackedStringArray("infection_meter")]
+[node name="Main" type="Control" node_paths=PackedStringArray("infection_meter") groups=["Main"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -94,7 +94,7 @@ custom_minimum_size = Vector2(350, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
-max_value = 5.0
+max_value = 400.0
 
 [node name="DesktopItems" type="GridContainer" parent="."]
 layout_mode = 0

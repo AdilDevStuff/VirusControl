@@ -1,16 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://dibbf0518rqt1"]
+[gd_scene load_steps=6 format=3 uid="uid://dibbf0518rqt1"]
 
 [ext_resource type="Script" uid="uid://dcrmdowx7yxuy" path="res://scenes/software_store/software_store.gd" id="1_ead30"]
 [ext_resource type="Script" uid="uid://62abtipqs0x7" path="res://utils/resources/upgrades/upgrade_item.gd" id="3_7vv10"]
 [ext_resource type="Resource" uid="uid://byfwy1k8c4h3a" path="res://utils/resources/upgrades/antivirus.tres" id="4_7vv10"]
 [ext_resource type="Resource" uid="uid://dh1y8eri8s8mv" path="res://utils/resources/upgrades/auto_closer.tres" id="4_c5bfi"]
+[ext_resource type="Resource" uid="uid://ufgl4cr6dpxc" path="res://utils/resources/upgrades/auto_close_all_popups.tres" id="5_c5bfi"]
 
 [node name="SoftwareStore" type="Window"]
 title = "Software Store"
 position = Vector2i(133, 111)
 size = Vector2i(885, 425)
 script = ExtResource("1_ead30")
-upgrades = Array[ExtResource("3_7vv10")]([ExtResource("4_c5bfi"), ExtResource("4_7vv10")])
+upgrades = Array[ExtResource("3_7vv10")]([ExtResource("4_c5bfi"), ExtResource("4_7vv10"), ExtResource("5_c5bfi")])
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 anchors_preset = 15
@@ -32,23 +33,37 @@ theme_override_constants/h_separation = 5
 theme_override_constants/v_separation = 5
 columns = 6
 
-[node name="Antivirus" type="Button" parent="PanelContainer/MarginContainer/GridContainer"]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-focus_mode = 0
-text = "Antivirus
-(50 Pts)"
-
 [node name="PopupCloser" type="Button" parent="PanelContainer/MarginContainer/GridContainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 tooltip_text = "Close Popups Automatically
 (+0.5 faster each upgrade)"
 focus_mode = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "Auto 
 popup closer
 (50 Pts)"
 
+[node name="Antivirus" type="Button" parent="PanelContainer/MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Antivirus
+(50 Pts)"
+
+[node name="CloseAllPopups" type="Button" parent="PanelContainer/MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+tooltip_text = "Close Popups Automatically
+(+0.5 faster each upgrade)"
+focus_mode = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Close All
+Popups
+(200 Pts)"
+
 [connection signal="close_requested" from="." to="." method="_on_close_requested"]
-[connection signal="pressed" from="PanelContainer/MarginContainer/GridContainer/Antivirus" to="." method="on_item_clicked" binds= [1]]
 [connection signal="pressed" from="PanelContainer/MarginContainer/GridContainer/PopupCloser" to="." method="on_item_clicked" binds= [0]]
+[connection signal="pressed" from="PanelContainer/MarginContainer/GridContainer/Antivirus" to="." method="on_item_clicked" binds= [1]]
+[connection signal="pressed" from="PanelContainer/MarginContainer/GridContainer/CloseAllPopups" to="." method="on_item_clicked" binds= [2]]
