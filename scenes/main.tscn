@@ -94,7 +94,7 @@ custom_minimum_size = Vector2(350, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
-max_value = 500.0
+max_value = 400.0
 
 [node name="DesktopItems" type="GridContainer" parent="."]
 layout_mode = 0
@@ -153,5 +153,6 @@ label_settings = SubResource("LabelSettings_85g3d")
 
 [connection signal="timeout" from="WindowSpawnDelay" to="." method="_on_window_spawn_delay_timeout"]
 [connection signal="timeout" from="AutocloseDelay" to="." method="_on_autoclose_delay_timeout"]
+[connection signal="value_changed" from="TaskBar/HBoxContainer/MarginContainer/InfectionMeter" to="." method="_on_infection_meter_value_changed"]
 [connection signal="pressed" from="DesktopItems/FileExplorer" to="." method="_on_file_explorer_pressed"]
 [connection signal="pressed" from="DesktopItems/SoftwareStore" to="." method="_on_software_store_pressed"]

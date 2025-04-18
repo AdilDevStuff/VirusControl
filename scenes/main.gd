@@ -81,6 +81,11 @@ func _on_autoclose_delay_timeout() -> void:
 		if virus_popups.get_child_count() > 0:
 			virus_popups.get_child(0).close_window()
 
+func _on_infection_meter_value_changed(value: float) -> void:
+	if value >= infection_meter.max_value:
+		Events.system_infected.emit()
+		get_tree().change_scene_to_file("res://scenes/rsod.tscn")
+
 # ---------- DEBUG FUNCTIONS ---------- #
 func get_score() -> void:
 	if Input.is_action_just_pressed("ui_accept"):

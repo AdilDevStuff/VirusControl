@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://d2vdgs8lvxwvv"]
+[gd_scene load_steps=8 format=3 uid="uid://d2vdgs8lvxwvv"]
 
 [ext_resource type="Theme" uid="uid://c6d7ud0k4vje8" path="res://utils/resources/os_dark_theme.tres" id="1_pyoah"]
 [ext_resource type="Texture2D" uid="uid://bmw8llosesbev" path="res://assets/icons/brokenEggOS.png" id="1_qs884"]
+[ext_resource type="Script" uid="uid://die27sf7ti0ht" path="res://scenes/rsod.gd" id="2_jvmcw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qs884"]
 bg_color = Color(1, 0.333333, 0.333333, 1)
@@ -23,6 +24,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_pyoah")
+script = ExtResource("2_jvmcw")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
@@ -66,3 +68,5 @@ text = "Restart"
 layout_mode = 2
 texture = ExtResource("1_qs884")
 expand_mode = 3
+
+[connection signal="pressed" from="PanelContainer/CenterContainer/HBoxContainer/VBoxContainer/RestartBtn" to="." method="_on_restart_btn_pressed"]
