@@ -5,8 +5,8 @@
 [resource]
 script = ExtResource("1_gwgue")
 item_name = "Auto Closer"
-item_cost = 10
-item_cost_increase_rate = 10
+item_cost = 50
+item_cost_increase_rate = 30
 item_property = "autoclose_ability_activated"
 item_btn = NodePath("PanelContainer/MarginContainer/GridContainer/PopupCloser")
 metadata/_custom_type_script = "uid://62abtipqs0x7"

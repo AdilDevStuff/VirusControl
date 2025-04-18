@@ -55,6 +55,7 @@ metadata/_custom_type_script = "uid://dgvf657jcu8kr"
 title = "Only for u <3"
 position = Vector2i(0, 36)
 size = Vector2i(400, 300)
+unresizable = true
 script = ExtResource("1_wfamw")
 ad_array = Array[ExtResource("2_7wedu")]([SubResource("Resource_7wedu"), SubResource("Resource_t7k7s"), SubResource("Resource_ssnec"), SubResource("Resource_corsv"), SubResource("Resource_xi67k"), SubResource("Resource_2qchl")])
 

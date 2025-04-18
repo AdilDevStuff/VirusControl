@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_nm26w")
 item_name = "Antivirus"
-item_cost = 500
+item_cost = 1500
 item_cost_increase_rate = 0
 item_property = "antivirus_activated"
 item_btn = NodePath("PanelContainer/MarginContainer/GridContainer/Antivirus")

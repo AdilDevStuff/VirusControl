@@ -6,6 +6,7 @@
 title = "Warning"
 position = Vector2i(0, 36)
 size = Vector2i(400, 150)
+unresizable = true
 script = ExtResource("1_vjlid")
 error_messages = Array[String](["Warning! Your PC is Infected with Virus!", "Your PC is filled with malware! Attention Needed!", "50 viruses detected, click to fix now!", "Windows detected viruses.", "Malware detected, fix now!", "89 Trackers, 71 worms and 32 infected files found", "PC is in danger.", "Someone might be spying on you.", "PC is corrupted", "Corrupted files found", "SystemFiles32 is not responding", "usr/lib/var32 not found", "Trojan virus found", "FR FR PC COOKED, OHIO"])
 

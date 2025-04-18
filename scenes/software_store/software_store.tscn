@@ -42,6 +42,8 @@ text = "Antivirus
 [node name="PopupCloser" type="Button" parent="PanelContainer/MarginContainer/GridContainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
+tooltip_text = "Close Popups Automatically
+(+0.5 faster each upgrade)"
 focus_mode = 0
 text = "Auto 
 popup closer
