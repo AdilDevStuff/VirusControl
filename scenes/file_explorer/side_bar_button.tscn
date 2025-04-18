@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5wjumr3n1dy5"]
+
+[ext_resource type="Texture2D" uid="uid://c4crjcq4gjibl" path="res://assets/icons/FolderIcon.png" id="1_ae2qa"]
+
+[node name="SideBarButton" type="Button"]
+custom_minimum_size = Vector2(110, 40)
+offset_right = 356.0
+offset_bottom = 84.0
+theme_override_constants/icon_max_width = 24
+text = "Folder Name"
+icon = ExtResource("1_ae2qa")
+alignment = 0

@@ -4,6 +4,11 @@ extends Window
 @export var grid_container: GridContainer
 @export var path_label: Label
 @export var sidebar_container: VBoxContainer
+
+@export var sidebar_btn: PackedScene
+@export var folder_btn: PackedScene
+@export var file_focused_style: StyleBoxFlat
+@export var file_unfocused_style: StyleBoxEmpty
 var selected_file : String
 
 func _ready() -> void:
@@ -11,8 +16,9 @@ func _ready() -> void:
 	var shortcuts = filesystem.get_sidebar_shortcuts()
 
 	for path in shortcuts:
-		var button = Button.new()
-		button.text = path.back()  # Show only the last folder/drive name
+		var button: Button = sidebar_btn.instantiate()
+		button.text = path.back()
+		button.flat = true
 		button.tooltip_text = "/" + "/".join(path.slice(1, path.size()))  # Exclude "Drives"
 		button.connect("pressed", func():
 			filesystem.current_path = path.duplicate()
@@ -28,9 +34,14 @@ func update_ui():
 	
 	for _name in folder.keys():
 		var is_folder = typeof(folder[_name]) == TYPE_DICTIONARY
-		var button = Button.new()
+		var button: Button = folder_btn.instantiate()
 		button.custom_minimum_size = Vector2(64, 64)
-		button.text = _name + ("/" if is_folder else "")
+		button.text = _name
+		if !is_folder:
+			button.add_theme_stylebox_override("focus", file_focused_style)
+			button.icon = preload("uid://brcm4rqn5h16v")
+		else:
+			button.add_theme_stylebox_override("focus", file_unfocused_style)
 		button.pressed.connect(_on_item_selected.bind(_name))
 		grid_container.add_child(button)
 
@@ -57,10 +68,8 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("delete_file"):
 		filesystem.delete_file(selected_file, self)
 
-
 func _on_back_button_pressed() -> void:
 	filesystem.go_back(self)
-
 
 func _on_delete_button_pressed() -> void:
 	filesystem.delete_file(selected_file, self)

@@ -1,0 +1,55 @@
+[gd_resource type="Theme" load_steps=10 format=3 uid="uid://c6d7ud0k4vje8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hyhou"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x2paw"]
+bg_color = Color(0.835938, 0.271027, 0.271027, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l3xey"]
+bg_color = Color(1, 0.333333, 0.333333, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hyhou"]
+bg_color = Color(0.785156, 0.208557, 0.208557, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wktbj"]
+bg_color = Color(0.113725, 0.113725, 0.113725, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_urasu"]
+bg_color = Color(0.113725, 0.113725, 0.113725, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y7dbc"]
+bg_color = Color(1, 0.333333, 0.333333, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bfjhp"]
+bg_color = Color(1, 0.333333, 0.333333, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 4.0
+expand_margin_top = 30.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2fyoo"]
+bg_color = Color(1, 0.501961, 0.501961, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 4.0
+expand_margin_top = 30.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
+
+[resource]
+Button/styles/focus = SubResource("StyleBoxEmpty_hyhou")
+Button/styles/hover = SubResource("StyleBoxFlat_x2paw")
+Button/styles/normal = SubResource("StyleBoxFlat_l3xey")
+Button/styles/pressed = SubResource("StyleBoxFlat_hyhou")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_wktbj")
+ProgressBar/styles/background = SubResource("StyleBoxFlat_urasu")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_y7dbc")
+Window/colors/title_color = Color(1, 1, 1, 1)
+Window/styles/embedded_border = SubResource("StyleBoxFlat_bfjhp")
+Window/styles/embedded_unfocused_border = SubResource("StyleBoxFlat_2fyoo")

@@ -1,17 +1,45 @@
-[gd_scene load_steps=3 format=3 uid="uid://t2pn2cpod3bc"]
+[gd_scene load_steps=10 format=3 uid="uid://t2pn2cpod3bc"]
 
 [ext_resource type="Script" uid="uid://dkohr6ruhcrd0" path="res://scenes/file_explorer/file_explorer.gd" id="1_ks2b6"]
 [ext_resource type="Resource" uid="uid://boag0yytgn8w8" path="res://utils/resources/file_system_data.tres" id="2_rupmg"]
+[ext_resource type="PackedScene" uid="uid://b5wjumr3n1dy5" path="res://scenes/file_explorer/side_bar_button.tscn" id="3_ee4v2"]
+[ext_resource type="PackedScene" uid="uid://do0tqdobm8wiw" path="res://scenes/file_explorer/folder_btn.tscn" id="4_0xeun"]
+[ext_resource type="Texture2D" uid="uid://l28tke1iuc3n" path="res://assets/icons/bin_icon.png" id="5_hst8l"]
+[ext_resource type="Texture2D" uid="uid://4hdlqdm53mlb" path="res://assets/icons/backBtnIcon.png" id="5_p2mdf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p2mdf"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(1, 0.333333, 0.333333, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+expand_margin_left = 6.0
+expand_margin_top = 6.0
+expand_margin_right = 6.0
+expand_margin_bottom = 6.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p2mdf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0xeun"]
 
 [node name="FileExplorer" type="Window" node_paths=PackedStringArray("grid_container", "path_label", "sidebar_container")]
 title = "File Explorer"
-position = Vector2i(89, 111)
+position = Vector2i(89, 98)
 size = Vector2i(885, 425)
 script = ExtResource("1_ks2b6")
 filesystem = ExtResource("2_rupmg")
-grid_container = NodePath("HSplitContainer/MainExplorer/VBoxContainer/GridContainer")
+grid_container = NodePath("HSplitContainer/MainExplorer/VBoxContainer/MarginContainer/GridContainer")
 path_label = NodePath("HSplitContainer/MainExplorer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/PathLabel")
-sidebar_container = NodePath("HSplitContainer/Sidebar/VBoxContainer")
+sidebar_container = NodePath("HSplitContainer/Sidebar/MarginContainer/VBoxContainer")
+sidebar_btn = ExtResource("3_ee4v2")
+folder_btn = ExtResource("4_0xeun")
+file_focused_style = SubResource("StyleBoxFlat_p2mdf")
+file_unfocused_style = SubResource("StyleBoxEmpty_p2mdf")
 
 [node name="HSplitContainer" type="HSplitContainer" parent="."]
 anchors_preset = 15
@@ -19,13 +47,22 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/split_bar_background = SubResource("StyleBoxEmpty_0xeun")
 
 [node name="Sidebar" type="PanelContainer" parent="HSplitContainer"]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/Sidebar"]
+[node name="MarginContainer" type="MarginContainer" parent="HSplitContainer/Sidebar"]
 layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/Sidebar/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
 
 [node name="MainExplorer" type="PanelContainer" parent="HSplitContainer"]
 layout_mode = 2
@@ -44,25 +81,45 @@ theme_override_constants/margin_right = 10
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HSplitContainer/MainExplorer/VBoxContainer/PanelContainer/MarginContainer"]
 layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="BackButton" type="Button" parent="HSplitContainer/MainExplorer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+theme_override_constants/icon_max_width = 24
+text = "Back"
+icon = ExtResource("5_p2mdf")
+flat = true
+
+[node name="DeleteButton" type="Button" parent="HSplitContainer/MainExplorer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+theme_override_constants/icon_max_width = 24
+text = "Delete"
+icon = ExtResource("5_hst8l")
+flat = true
+
+[node name="VSeparator" type="VSeparator" parent="HSplitContainer/MainExplorer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
 
 [node name="PathLabel" type="Label" parent="HSplitContainer/MainExplorer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Path goes here"
 
-[node name="BackButton" type="Button" parent="HSplitContainer/MainExplorer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(60, 0)
-layout_mode = 2
-text = "<- Back"
-
-[node name="DeleteButton" type="Button" parent="HSplitContainer/MainExplorer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(60, 0)
-layout_mode = 2
-text = "🗑️ Delete"
-
-[node name="GridContainer" type="GridContainer" parent="HSplitContainer/MainExplorer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="HSplitContainer/MainExplorer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="GridContainer" type="GridContainer" parent="HSplitContainer/MainExplorer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
 columns = 4
 
 [connection signal="close_requested" from="." to="." method="_on_close_requested"]

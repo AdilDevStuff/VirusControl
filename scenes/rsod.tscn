@@ -1,0 +1,68 @@
+[gd_scene load_steps=7 format=3 uid="uid://d2vdgs8lvxwvv"]
+
+[ext_resource type="Theme" uid="uid://c6d7ud0k4vje8" path="res://utils/resources/os_dark_theme.tres" id="1_pyoah"]
+[ext_resource type="Texture2D" uid="uid://bmw8llosesbev" path="res://assets/icons/brokenEggOS.png" id="1_qs884"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qs884"]
+bg_color = Color(1, 0.333333, 0.333333, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_qs884"]
+font_size = 121
+
+[sub_resource type="LabelSettings" id="LabelSettings_ojkun"]
+font_size = 40
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pyoah"]
+bg_color = Color(1, 0.501961, 0.501961, 1)
+
+[node name="RSOD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_pyoah")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qs884")
+
+[node name="CenterContainer" type="CenterContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 150
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/CenterContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="SadFace" type="Label" parent="PanelContainer/CenterContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = ":("
+label_settings = SubResource("LabelSettings_qs884")
+
+[node name="ErrorMessage" type="Label" parent="PanelContainer/CenterContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Your Pc Ran into an Issue
+and needs to be Restarted."
+label_settings = SubResource("LabelSettings_ojkun")
+
+[node name="RestartBtn" type="Button" parent="PanelContainer/CenterContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_pyoah")
+text = "Restart"
+
+[node name="EggOSBrokenLogo" type="TextureRect" parent="PanelContainer/CenterContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_qs884")
+expand_mode = 3

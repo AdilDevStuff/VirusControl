@@ -19,20 +19,27 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="GridContainer" type="GridContainer" parent="PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="GridContainer" type="GridContainer" parent="PanelContainer/MarginContainer"]
 layout_mode = 2
 theme_override_constants/h_separation = 5
 theme_override_constants/v_separation = 5
 columns = 6
 
-[node name="Antivirus" type="Button" parent="PanelContainer/GridContainer"]
+[node name="Antivirus" type="Button" parent="PanelContainer/MarginContainer/GridContainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 focus_mode = 0
 text = "Antivirus
 (50 Pts)"
 
-[node name="PopupCloser" type="Button" parent="PanelContainer/GridContainer"]
+[node name="PopupCloser" type="Button" parent="PanelContainer/MarginContainer/GridContainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 focus_mode = 0
@@ -41,5 +48,5 @@ popup closer
 (50 Pts)"
 
 [connection signal="close_requested" from="." to="." method="_on_close_requested"]
-[connection signal="pressed" from="PanelContainer/GridContainer/Antivirus" to="." method="on_item_clicked" binds= [1]]
-[connection signal="pressed" from="PanelContainer/GridContainer/PopupCloser" to="." method="on_item_clicked" binds= [0]]
+[connection signal="pressed" from="PanelContainer/MarginContainer/GridContainer/Antivirus" to="." method="on_item_clicked" binds= [1]]
+[connection signal="pressed" from="PanelContainer/MarginContainer/GridContainer/PopupCloser" to="." method="on_item_clicked" binds= [0]]

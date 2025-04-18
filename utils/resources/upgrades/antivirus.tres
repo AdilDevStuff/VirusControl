@@ -8,5 +8,5 @@ item_name = "Antivirus"
 item_cost = 500
 item_cost_increase_rate = 0
 item_property = "antivirus_activated"
-item_btn = NodePath("PanelContainer/GridContainer/Antivirus")
+item_btn = NodePath("PanelContainer/MarginContainer/GridContainer/Antivirus")
 metadata/_custom_type_script = "uid://62abtipqs0x7"

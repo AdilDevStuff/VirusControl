@@ -5,15 +5,12 @@ class_name AdWindows
 var ad_res : AdResource
 var desktop_env : DesktopEnvironment 
 
-@onready var texture_rect : TextureRect = $PanelContainer/TextureRect
+@onready var texture_rect: TextureButton = $CenterContainer/TextureRect
 
 func _ready() -> void:
 	ad_res = ad_array.pick_random()
-	texture_rect.texture = ad_res.img
+	texture_rect.texture_normal = ad_res.img
 	self.title = ad_res.label_text
-
-func _on_get_button_pressed() -> void:
-	OS.shell_open(ad_res.url)
 
 func close_window() -> void:
 	Global.increase_score(5)
@@ -24,3 +21,6 @@ func close_window() -> void:
 
 func _on_close_requested() -> void:
 	close_window()
+
+func _on_texture_rect_pressed() -> void:
+	OS.shell_open(ad_res.url)

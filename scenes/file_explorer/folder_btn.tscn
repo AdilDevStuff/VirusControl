@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://do0tqdobm8wiw"]
+
+[ext_resource type="Texture2D" uid="uid://c4crjcq4gjibl" path="res://assets/icons/FolderIcon.png" id="1_p47ea"]
+
+[node name="FolderBtn" type="Button"]
+offset_right = 57.0
+offset_bottom = 69.0
+theme_override_constants/icon_max_width = 48
+text = "Folder"
+icon = ExtResource("1_p47ea")
+flat = true
+icon_alignment = 1
+vertical_icon_alignment = 0
