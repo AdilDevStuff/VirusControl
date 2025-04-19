@@ -117,6 +117,8 @@ vertical_icon_alignment = 0
 [node name="Antivirus" type="Button" parent="PanelContainer/MarginContainer/GridContainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
+tooltip_text = "Enables Antivirus
+(Can be bought once)"
 focus_mode = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_constants/icon_max_width = 30
@@ -130,13 +132,17 @@ expand_icon = true
 [node name="CloseAllPopups" type="Button" parent="PanelContainer/MarginContainer/GridContainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
-tooltip_text = "Close Popups Automatically
-(+0.5 faster each upgrade)"
+tooltip_text = "Closes all opened popups
+(Works 1x per purchase)"
 focus_mode = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/icon_max_width = 36
 text = "Close All
 Popups
 (200 Pts)"
+icon = ExtResource("6_t75vb")
+icon_alignment = 1
+vertical_icon_alignment = 0
 
 [node name="Prompt" type="Label" parent="."]
 modulate = Color(1, 1, 1, 0)

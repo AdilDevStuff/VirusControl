@@ -36,11 +36,16 @@ func create_new_window() -> void:
 
 		window_instance.desktop_env = self
 		window_instance.size = Vector2.ZERO
-		var random_position_x = randf_range(spawn_area.pivot_offset.x, spawn_area.size.x)
-		var random_position_y = randf_range(spawn_area.pivot_offset.y, spawn_area.size.y)
+		
+		var spawn_rect_global_pos = spawn_area.get_global_position()
+		var spawn_rect_size = spawn_area.size
+		var random_pos = spawn_rect_global_pos + Vector2(
+			randf_range(0.0, spawn_rect_size.x),
+			randf_range(0.0, spawn_rect_size.y)
+		)
 		var tween = create_tween()
 		tween.tween_property(window_instance, "size", Vector2i(400, 150), 0.1)
-		window_instance.position = Vector2(random_position_x, random_position_y)
+		window_instance.position = random_pos
 		virus_popups.add_child(window_instance)
 
 func close_all_popups() -> void:
