@@ -1,10 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://dibbf0518rqt1"]
+[gd_scene load_steps=12 format=3 uid="uid://dibbf0518rqt1"]
 
 [ext_resource type="Script" uid="uid://dcrmdowx7yxuy" path="res://scenes/software_store/software_store.gd" id="1_ead30"]
 [ext_resource type="Script" uid="uid://62abtipqs0x7" path="res://utils/resources/upgrades/upgrade_item.gd" id="3_7vv10"]
 [ext_resource type="Resource" uid="uid://byfwy1k8c4h3a" path="res://utils/resources/upgrades/antivirus.tres" id="4_7vv10"]
 [ext_resource type="Resource" uid="uid://dh1y8eri8s8mv" path="res://utils/resources/upgrades/auto_closer.tres" id="4_c5bfi"]
 [ext_resource type="Resource" uid="uid://ufgl4cr6dpxc" path="res://utils/resources/upgrades/auto_close_all_popups.tres" id="5_c5bfi"]
+[ext_resource type="Texture2D" uid="uid://b4xvnn2f61hrs" path="res://assets/icons/AntivirusIcon.png" id="6_mpah7"]
+[ext_resource type="Texture2D" uid="uid://sxpx5o2exfm8" path="res://assets/icons/AutoCloserIcon.png" id="6_t75vb"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_c5bfi"]
 font_size = 24
@@ -105,17 +107,25 @@ tooltip_text = "Close Popups Automatically
 (+0.5 faster each upgrade)"
 focus_mode = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-text = "Auto 
-popup closer
+theme_override_constants/icon_max_width = 35
+text = "Popup Closer
 (50 Pts)"
+icon = ExtResource("6_t75vb")
+icon_alignment = 1
+vertical_icon_alignment = 0
 
 [node name="Antivirus" type="Button" parent="PanelContainer/MarginContainer/GridContainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 focus_mode = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/icon_max_width = 30
 text = "Antivirus
 (50 Pts)"
+icon = ExtResource("6_mpah7")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
 
 [node name="CloseAllPopups" type="Button" parent="PanelContainer/MarginContainer/GridContainer"]
 custom_minimum_size = Vector2(100, 100)
