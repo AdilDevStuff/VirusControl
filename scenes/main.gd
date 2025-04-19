@@ -31,7 +31,7 @@ func _process(delta: float) -> void:
 	infection_increase_threshold = 2.0 if virus_popups.get_child_count() >= 10 else 1.0
 	
 func create_new_window() -> void:
-	if not Global.antivirus_activated and Global.can_virus_popup:
+	if Global.can_virus_popup:
 		window_instance = popups.pick_random().instantiate()
 
 		window_instance.desktop_env = self

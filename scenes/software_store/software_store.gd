@@ -2,6 +2,8 @@ extends Window
 
 @export var upgrades: Array[UpgradeItem]
 
+@onready var prompt: Label = $Prompt
+
 func _ready() -> void:
 	for upgrade in upgrades:
 		var btn_node = get_node(upgrade.item_btn)
@@ -13,7 +15,8 @@ func buy_upgrade(idx: int):
 	
 	if Global.score >= upgrade.item_cost:
 		Global.score -= upgrade.item_cost
-		
+		prompt.text = "Bought %s" % upgrade.item_name
+		$AnimationPlayer.play("ShowPrompt")
 		if !upgrade.item_property.is_empty(): Global[upgrade.item_property] = true
 		elif !upgrade.item_method.is_empty():
 			get_tree().call_group(upgrade.item_method_group, upgrade.item_method)
@@ -25,7 +28,8 @@ func buy_upgrade(idx: int):
 			Global.autoclose_timer_wait_time -= 0.5
 			Events.autoclose_wait_time_changed.emit()
 	else:
-		print_rich("[color=tomato]Not Enough Points![/color]")
+		prompt.text = "Not Enough Points!"
+		$AnimationPlayer.play("ShowPrompt")
 
 # SIGNAL CALLBACKS
 func _on_close_requested() -> void:

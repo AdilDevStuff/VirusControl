@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bhfme4jtr7hxm"]
+[gd_scene load_steps=16 format=3 uid="uid://bhfme4jtr7hxm"]
 
 [ext_resource type="Theme" uid="uid://c6d7ud0k4vje8" path="res://utils/resources/os_dark_theme.tres" id="1_choun"]
 [ext_resource type="Script" uid="uid://blukyxbov3cah" path="res://scenes/main.gd" id="1_o5qli"]
@@ -10,6 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://c4crjcq4gjibl" path="res://assets/icons/FolderIcon.png" id="7_tipki"]
 [ext_resource type="Texture2D" uid="uid://5tpb6mbqd0xc" path="res://assets/icons/SoftwareStoreIcon.png" id="8_85g3d"]
 [ext_resource type="Texture2D" uid="uid://c25l8fblqh4xa" path="res://assets/icons/SettingsIcon.png" id="9_85g3d"]
+[ext_resource type="Script" uid="uid://cxrvq0vrpvstj" path="res://scenes/powerups_tray.gd" id="11_trceg"]
+[ext_resource type="Texture2D" uid="uid://sxpx5o2exfm8" path="res://assets/icons/AutoCloserIcon.png" id="11_ya4ey"]
+[ext_resource type="Texture2D" uid="uid://b4xvnn2f61hrs" path="res://assets/icons/AntivirusIcon.png" id="12_eb6dy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_choun"]
 bg_color = Color(0.172549, 0.172549, 0.172549, 1)
@@ -151,8 +154,45 @@ grow_horizontal = 0
 text = "Score: 00 pts"
 label_settings = SubResource("LabelSettings_85g3d")
 
+[node name="PowerupsTray" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 930.0
+offset_top = -43.0
+offset_right = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 15
+alignment = 2
+script = ExtResource("11_trceg")
+
+[node name="AutoCloserBtn" type="TextureButton" parent="PowerupsTray"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+tooltip_text = "Auto Closer is Active"
+texture_normal = ExtResource("11_ya4ey")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="AntivirusToggleBtn" type="TextureButton" parent="PowerupsTray"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+tooltip_text = "Antivirus is Enabled, Click to Toggle On/Off."
+toggle_mode = true
+texture_normal = ExtResource("12_eb6dy")
+ignore_texture_size = true
+stretch_mode = 4
+
 [connection signal="timeout" from="WindowSpawnDelay" to="." method="_on_window_spawn_delay_timeout"]
 [connection signal="timeout" from="AutocloseDelay" to="." method="_on_autoclose_delay_timeout"]
 [connection signal="value_changed" from="TaskBar/HBoxContainer/MarginContainer/InfectionMeter" to="." method="_on_infection_meter_value_changed"]
 [connection signal="pressed" from="DesktopItems/FileExplorer" to="." method="_on_file_explorer_pressed"]
 [connection signal="pressed" from="DesktopItems/SoftwareStore" to="." method="_on_software_store_pressed"]
+[connection signal="toggled" from="PowerupsTray/AntivirusToggleBtn" to="PowerupsTray" method="_on_antivirus_toggle_btn_toggled"]
