@@ -13,5 +13,7 @@ var virus_deleted: bool = false
 
 var autoclose_timer_wait_time: float = 5.0
 
+var dialog_played_once: bool = false
+
 func increase_score(amount: int) -> void:
 	score += amount

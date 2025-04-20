@@ -6,6 +6,7 @@ class_name DesktopEnvironment
 
 @export var file_explorer_scene: PackedScene
 @export var software_store_scene: PackedScene
+@export var dialog_box_scene: PackedScene
 @export var infection_meter: ProgressBar
 
 @onready var spawn_area: ReferenceRect = $SpawnArea
@@ -17,10 +18,15 @@ var window_instance: Window
 
 func _ready() -> void:
 	Global.score = 0
-	Global.can_virus_popup = true
+	Global.can_virus_popup = false
+	
+	if Global.dialog_played_once:
+		Global.can_virus_popup = true
 	
 	Events.virus_deleted.connect(_on_virus_deleted)
+	Events.dialog_finished.connect(_on_dialogs_finished)
 	Events.autoclose_wait_time_changed.connect(_on_autoclose_wait_time_updated)
+	create_intro_dialog_box()
 
 func _process(delta: float) -> void:
 	if OS.is_debug_build(): get_score()
@@ -29,7 +35,12 @@ func _process(delta: float) -> void:
 	if Global.can_virus_popup:
 		infection_meter.value += infection_increase_threshold * delta
 	infection_increase_threshold = 2.0 if virus_popups.get_child_count() >= 10 else 1.0
-	
+
+func create_intro_dialog_box() -> void:
+	if !Global.dialog_played_once:
+		var dialog_box = dialog_box_scene.instantiate()
+		add_child(dialog_box)
+
 func create_new_window() -> void:
 	if Global.can_virus_popup:
 		window_instance = popups.pick_random().instantiate()
@@ -54,6 +65,14 @@ func close_all_popups() -> void:
 			popup.close_window()
 
 # ---------- SIGNAL CALLBACKS ---------- #
+
+func _on_dialogs_finished() -> void:
+	Global.can_virus_popup = true
+	Global.dialog_played_once = true
+	
+	if !FileAccess.file_exists("user://save.txt"):
+		var file = FileAccess.open("user://save.txt", FileAccess.WRITE)
+		file.store_var(Global.dialog_played_once)
 
 func _on_virus_deleted() -> void:
 	Global.can_virus_popup = false

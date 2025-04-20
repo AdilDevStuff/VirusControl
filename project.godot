@@ -11,8 +11,10 @@ config_version=5
 [application]
 
 config/name="VirusControl"
-run/main_scene="uid://bhfme4jtr7hxm"
+run/main_scene="uid://f843tcijwyen"
 config/features=PackedStringArray("4.4")
+boot_splash/fullsize=false
+boot_splash/image="uid://cms6bbolbk5kx"
 config/icon="res://icon.svg"
 
 [autoload]

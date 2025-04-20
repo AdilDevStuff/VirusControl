@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://60p30npm6kti"]
+[gd_scene load_steps=17 format=3 uid="uid://60p30npm6kti"]
 
 [ext_resource type="Script" uid="uid://cs741ecyhf2rf" path="res://scenes/ad_window/ad_window.gd" id="1_wfamw"]
 [ext_resource type="Script" uid="uid://dgvf657jcu8kr" path="res://scenes/ad_window/ad_resource.gd" id="2_7wedu"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://nwggo0uk5uh7" path="res://scenes/ad_window/images/astra.png" id="6_corsv"]
 [ext_resource type="Texture2D" uid="uid://c1mkrgn7tj3c3" path="res://scenes/ad_window/images/1000.jpg" id="7_2qchl"]
 [ext_resource type="Texture2D" uid="uid://orybdq13cqo1" path="res://scenes/ad_window/images/join_the_revloution.png" id="8_xi67k"]
+[ext_resource type="Texture2D" uid="uid://cms6bbolbk5kx" path="res://scenes/ad_window/images/GwJ Banner.png" id="9_jfjbr"]
 
 [sub_resource type="Resource" id="Resource_7wedu"]
 script = ExtResource("2_7wedu")
@@ -51,6 +52,13 @@ img = ExtResource("8_xi67k")
 label_text = "Support the revolution"
 metadata/_custom_type_script = "uid://dgvf657jcu8kr"
 
+[sub_resource type="Resource" id="Resource_scphh"]
+script = ExtResource("2_7wedu")
+url = "https://godotwildjam.com/"
+img = ExtResource("9_jfjbr")
+label_text = "Join Cool Game Jam!"
+metadata/_custom_type_script = "uid://dgvf657jcu8kr"
+
 [node name="AdWindow" type="Window"]
 title = "Only for u <3"
 position = Vector2i(0, 36)
@@ -58,7 +66,7 @@ size = Vector2i(400, 300)
 unresizable = true
 always_on_top = true
 script = ExtResource("1_wfamw")
-ad_array = Array[ExtResource("2_7wedu")]([SubResource("Resource_7wedu"), SubResource("Resource_t7k7s"), SubResource("Resource_ssnec"), SubResource("Resource_corsv"), SubResource("Resource_xi67k"), SubResource("Resource_2qchl")])
+ad_array = Array[ExtResource("2_7wedu")]([SubResource("Resource_7wedu"), SubResource("Resource_t7k7s"), SubResource("Resource_ssnec"), SubResource("Resource_corsv"), SubResource("Resource_xi67k"), SubResource("Resource_2qchl"), SubResource("Resource_scphh")])
 
 [node name="CenterContainer" type="VBoxContainer" parent="."]
 anchors_preset = 15

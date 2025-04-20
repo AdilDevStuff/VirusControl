@@ -1,0 +1,103 @@
+[gd_scene load_steps=7 format=3 uid="uid://b80dmq0lv4mo5"]
+
+[ext_resource type="Script" uid="uid://ctn38gy32s6am" path="res://scenes/dialog_box/dialog_box.gd" id="1_l75cd"]
+[ext_resource type="AudioStream" uid="uid://bpovttxc5qtxt" path="res://assets/audio/Retro_Single_v1_wav.wav" id="2_h825y"]
+
+[sub_resource type="Animation" id="Animation_l75cd"]
+resource_name = "Start"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/VBoxContainer/RichTextLabel:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_h825y"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/VBoxContainer/RichTextLabel:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5hx2s"]
+_data = {
+&"RESET": SubResource("Animation_h825y"),
+&"Start": SubResource("Animation_l75cd")
+}
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_5hx2s"]
+random_pitch = 1.02
+streams_count = 1
+stream_0/stream = ExtResource("2_h825y")
+
+[node name="CanvasLayer" type="CanvasLayer"]
+layer = 2
+
+[node name="BG" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.588235)
+
+[node name="DialogBox" type="PanelContainer" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -225.5
+offset_top = -245.0
+offset_right = 225.5
+offset_bottom = -78.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("1_l75cd")
+dialogs = Array[String](["Oh Noo....What just happened...!", "Arghh.....I think my pc is cooked...", "I need to fix this!"])
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogBox"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DialogBox/MarginContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogBox/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "sadsadsdasdasd"
+
+[node name="NextBtn" type="Button" parent="DialogBox/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Continue"
+
+[node name="DialogAnim" type="AnimationPlayer" parent="DialogBox"]
+libraries = {
+&"": SubResource("AnimationLibrary_5hx2s")
+}
+
+[node name="DialogSfx" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_5hx2s")
+volume_db = -12.0
+pitch_scale = 2.2
+
+[connection signal="pressed" from="DialogBox/MarginContainer/VBoxContainer/NextBtn" to="DialogBox" method="_on_next_btn_pressed"]

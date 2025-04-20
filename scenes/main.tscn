@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bhfme4jtr7hxm"]
+[gd_scene load_steps=16 format=3 uid="uid://bhfme4jtr7hxm"]
 
 [ext_resource type="Theme" uid="uid://c6d7ud0k4vje8" path="res://utils/resources/os_dark_theme.tres" id="1_choun"]
 [ext_resource type="Script" uid="uid://blukyxbov3cah" path="res://scenes/main.gd" id="1_o5qli"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://cxrvq0vrpvstj" path="res://scenes/powerups_tray.gd" id="11_trceg"]
 [ext_resource type="Texture2D" uid="uid://sxpx5o2exfm8" path="res://assets/icons/AutoCloserIcon.png" id="11_ya4ey"]
 [ext_resource type="Texture2D" uid="uid://b4xvnn2f61hrs" path="res://assets/icons/AntivirusIcon.png" id="12_eb6dy"]
+[ext_resource type="PackedScene" uid="uid://b80dmq0lv4mo5" path="res://scenes/dialog_box/dialog_box.tscn" id="13_trceg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_choun"]
 bg_color = Color(0.172549, 0.172549, 0.172549, 1)
@@ -33,6 +34,7 @@ script = ExtResource("1_o5qli")
 popups = Array[PackedScene]([ExtResource("3_choun"), ExtResource("2_0wfyh")])
 file_explorer_scene = ExtResource("3_tipki")
 software_store_scene = ExtResource("4_85g3d")
+dialog_box_scene = ExtResource("13_trceg")
 infection_meter = NodePath("TaskBar/HBoxContainer/MarginContainer/InfectionMeter")
 
 [node name="Background" type="TextureRect" parent="."]
@@ -96,7 +98,7 @@ custom_minimum_size = Vector2(350, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
-max_value = 400.0
+max_value = 300.0
 
 [node name="DesktopItems" type="GridContainer" parent="."]
 layout_mode = 0
