@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://br7tod64er1qs" path="res://assets/images/NewWallpaperEggOS.png" id="6_85g3d"]
 [ext_resource type="Texture2D" uid="uid://c4crjcq4gjibl" path="res://assets/icons/FolderIcon.png" id="7_tipki"]
 [ext_resource type="Texture2D" uid="uid://5tpb6mbqd0xc" path="res://assets/icons/SoftwareStoreIcon.png" id="8_85g3d"]
-[ext_resource type="Script" uid="uid://cxrvq0vrpvstj" path="res://scenes/powerups_tray.gd" id="11_trceg"]
+[ext_resource type="Script" path="res://scenes/powerups_tray.gd" id="11_trceg"]
 [ext_resource type="Texture2D" uid="uid://sxpx5o2exfm8" path="res://assets/icons/AutoCloserIcon.png" id="11_ya4ey"]
 [ext_resource type="Texture2D" uid="uid://b4xvnn2f61hrs" path="res://assets/icons/AntivirusIcon.png" id="12_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://b80dmq0lv4mo5" path="res://scenes/dialog_box/dialog_box.tscn" id="13_trceg"]
@@ -89,6 +89,7 @@ size_flags_horizontal = 0
 size_flags_vertical = 4
 
 [node name="MarginContainer" type="MarginContainer" parent="TaskBar/HBoxContainer"]
+visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_right = 10
@@ -133,6 +134,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="ScoreLabel" type="Label" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -146,6 +148,7 @@ text = "Score: 00 pts"
 label_settings = SubResource("LabelSettings_85g3d")
 
 [node name="PowerupsTray" type="HBoxContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
